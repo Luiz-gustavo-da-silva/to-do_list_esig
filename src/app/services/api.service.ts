@@ -20,11 +20,11 @@ export class ApiService {
   }
 
   deleteTask(id: number) {
-    return this.http.delete(`api/books/${id}`);
+    return this.http.delete(`api/Tasks/${id}`);
   }
 
   putTask(data: any, id: number) {
-    this.http.put(`api/books/${id}`, data);
+    this.http.put(`api/Tasks/${id}`, data);
   }
 
 }

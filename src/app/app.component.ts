@@ -60,4 +60,17 @@ export class AppComponent implements OnInit{
       },
     });
   }
+
+  deleteTask(id : number){
+    this.api.deleteTask(id)
+    .subscribe({
+      next: (res) =>{
+        alert('delete Product sucessfully!');
+        this.getAllTask();
+      },
+      error:()=>{
+        alert('error delet product!');
+      }
+    })
+  }
 }
