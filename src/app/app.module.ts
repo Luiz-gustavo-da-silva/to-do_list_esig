@@ -18,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { TaskDataService } from './services/data/task-data.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FormsModule,
     MatTableModule,
     MatPaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(TaskDataService),
   ],
   providers: [],
   bootstrap: [AppComponent]
