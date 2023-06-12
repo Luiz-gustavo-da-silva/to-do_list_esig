@@ -47,6 +47,7 @@ export class AppComponent implements OnInit{
   
   cleanFilter(){
     this.taskFilterForm.reset();
+    this.getAllTask();
   }
 
   researchFiltertask(){
@@ -69,11 +70,11 @@ export class AppComponent implements OnInit{
     this.api.deleteTask(id)
     .subscribe({
       next: (res) =>{
-        alert('delete Product sucessfully!');
+        alert('delete task sucessfully!');
         this.getAllTask();
       },
       error:()=>{
-        alert('error delet product!');
+        alert('error delet task!');
       }
     })
   }
@@ -81,7 +82,7 @@ export class AppComponent implements OnInit{
   editTask(row:any){
     this.dialog.open(DialogComponent,{
       width: '40%',
-      data:row,
+      data: row,
     }).afterClosed().subscribe(val => {
         if(val === "update"){
           this.getAllTask();

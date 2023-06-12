@@ -7,8 +7,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
-  task: any[] = [];
-
   constructor(private http: HttpClient) { }
 
   getTask() {
@@ -16,21 +14,15 @@ export class ApiService {
   }
 
   postTask(data: any) {
-    return this.http.post<any>("api/Tasks",data);
+    return this.http.post<any>("api/Tasks", data);
   }
 
   deleteTask(id: number) {
-    return this.http.delete(`api/Tasks/${id}`);
+    return this.http.delete<any>(`api/Tasks/${id}`);
   }
 
   putTask(data: any, id: number) {
-    return this.http.put(`api/Tasks/${id}`, data);
+    return this.http.put<any>(`api/Tasks/${id}`, data);
   }
 
 }
-
-// interface Itask {
-//   id: number;
-//   title: string;
-//   author: string;
-// }
