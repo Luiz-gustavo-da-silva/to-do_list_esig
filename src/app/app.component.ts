@@ -38,7 +38,11 @@ export class AppComponent implements OnInit{
   openDialog() {
     this.dialog.open(DialogComponent, {
       width: '40%',
-    })
+    }).afterClosed().subscribe(val => {
+      if(val === 'save'){
+        this.getAllTask();
+      }
+    });
   }
   
   cleanFilter(){
@@ -46,7 +50,7 @@ export class AppComponent implements OnInit{
   }
 
   researchFiltertask(){
-      console.log(this.taskFilterForm.value)
+    console.log(this.taskFilterForm.value)
   }
 
   getAllTask() {
@@ -73,4 +77,16 @@ export class AppComponent implements OnInit{
       }
     })
   }
+
+  editTask(row:any){
+    this.dialog.open(DialogComponent,{
+      width: '40%',
+      data:row,
+    }).afterClosed().subscribe(val => {
+        if(val === "update"){
+          this.getAllTask();
+        }
+    })
+  }
+
 }

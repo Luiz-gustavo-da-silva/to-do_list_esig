@@ -24,7 +24,7 @@ export class ApiService {
   }
 
   putTask(data: any, id: number) {
-    this.http.put(`api/Tasks/${id}`, data);
+    return this.http.put(`api/Tasks/${id}`, data);
   }
 
 }
