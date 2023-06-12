@@ -19,14 +19,14 @@
           <div style="display: flex; flex-direction: column">
             <mat-form-field appearance="outline">
               <mat-label>Número</mat-label>
-              <input formControlName="numero" matInput placeholder="Número" />
+              <input formControlName="numero" type="number" matInput placeholder="Número" />
             </mat-form-field>
 
             <mat-form-field appearance="outline">
               <mat-label>Situação</mat-label>
-              <mat-select placeholder="Situação" formControlName="situacao">
-                <mat-option value="Grave">Em andamento</mat-option>
-                <mat-option value="Média">Concluído</mat-option>
+              <mat-select placeholder="Situação" formControlName="andamento">
+                <mat-option value="true">Em andamento</mat-option>
+                <mat-option value="false">Concluído</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -48,11 +48,11 @@
                 <mat-label>Responsável</mat-label>
                 <mat-select
                   placeholder="Prioridade"
-                  formControlName="prioridade"
+                  formControlName="responsavel"
                 >
-                  <mat-option value="Grave">Grave</mat-option>
-                  <mat-option value="Média">Médio</mat-option>
-                  <mat-option value="Média">Fácil</mat-option>
+                  <mat-option value="Luiz">Luiz</mat-option>
+                  <mat-option value="Raí">Raí</mat-option>
+                  <mat-option value="Alisson">Alisson</mat-option>
                 </mat-select>
               </mat-form-field>
 
@@ -116,6 +116,9 @@
                 </button>
                 <button mat-icon-button color="warn" (click)="deleteTask(row.id)">
                   <mat-icon>delete</mat-icon>
+                </button>
+                <button mat-icon-button color="success" (click)="concluirTask(row)">
+                  <mat-icon>done</mat-icon>
                 </button>
               </td>
             </ng-container>

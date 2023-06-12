@@ -1,64 +1,88 @@
-import { Component, ViewChild, OnInit  } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import {  MatPaginator } from '@angular/material/paginator';
-import {  MatTableDataSource  } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'to-do_list_esig';
 
-  taskFilterForm !: FormGroup;
+  taskFilterForm!: FormGroup;
 
-  displayedColumns: string[] = ['titulo', 'responsavel', 'descricao', 'prioridade', 'deadline', 'action'];
+  displayedColumns: string[] = [
+    'titulo',
+    'responsavel',
+    'descricao',
+    'prioridade',
+    'deadline',
+    'action',
+  ];
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  constructor(
+    private dialog: MatDialog,
+    private formBuilder: FormBuilder,
+    private api: ApiService
+  ) {}
 
-
-  constructor(private dialog : MatDialog, private formBuilder: FormBuilder, private api: ApiService){}
-
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.taskFilterForm = this.formBuilder.group({
-      numero: ['', Validators.required],
-      situacao: ['', Validators.required],
-      tituloDescricao: ['', Validators.required], 
-      prioridade: ['', Validators.required], 
-  });
+      numero:"",
+      andamento:"",
+      tituloDescricao:"",
+      responsavel:"",
+    });
 
     this.getAllTask();
   }
 
   openDialog() {
-    this.dialog.open(DialogComponent, {
-      width: '40%',
-    }).afterClosed().subscribe(val => {
-      if(val === 'save'){
-        this.getAllTask();
-      }
-    });
+    this.dialog
+      .open(DialogComponent, {
+        width: '40%',
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'save') {
+          this.getAllTask();
+        }
+      });
   }
-  
-  cleanFilter(){
+
+  cleanFilter() {
     this.taskFilterForm.reset();
     this.getAllTask();
   }
 
-  researchFiltertask(){
-    console.log(this.taskFilterForm.value)
+  researchFiltertask() {
+    if (this.taskFilterForm.value) {
+      this.api.filterTask(this.taskFilterForm.value).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.dataSource = new MatTableDataSource(res);
+          //alert('Error no filtro');
+        },
+        error: (err) => {
+          alert('Error no filtro');
+          this.getAllTask();
+        },
+      });
+    }
   }
 
   getAllTask() {
     this.api.getTask().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);
-        this.dataSource.paginator = this.paginator;
+        //this.dataSource.paginator = this.paginator;
       },
       error: (err) => {
         alert('Error while fetchig the Records');
@@ -66,28 +90,41 @@ export class AppComponent implements OnInit{
     });
   }
 
-  deleteTask(id : number){
-    this.api.deleteTask(id)
-    .subscribe({
-      next: (res) =>{
+  deleteTask(id: number) {
+    this.api.deleteTask(id).subscribe({
+      next: (res) => {
         alert('delete task sucessfully!');
         this.getAllTask();
       },
-      error:()=>{
+      error: () => {
         alert('error delet task!');
-      }
-    })
+      },
+    });
   }
 
-  editTask(row:any){
-    this.dialog.open(DialogComponent,{
-      width: '40%',
-      data: row,
-    }).afterClosed().subscribe(val => {
-        if(val === "update"){
+  editTask(row: any) {
+    this.dialog
+      .open(DialogComponent, {
+        width: '40%',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'update') {
           this.getAllTask();
         }
-    })
+      });
   }
 
+  concluirTask(row: any) {
+    this.api.concludeTask(row, row.id).subscribe({
+      next: (res) => {
+        alert('Conclusão task sucessfully!');
+        this.getAllTask();
+      },
+      error: () => {
+        alert('error delet task!');
+      },
+    });
+  }
 }

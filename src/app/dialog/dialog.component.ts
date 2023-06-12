@@ -27,7 +27,7 @@ export class DialogComponent implements OnInit {
       descricao: ['', Validators.required],
       prioridade: ['', Validators.required],
       deadline: ['', Validators.required],
-      andamento:[],
+      andamento: true,
     });
 
     if (this.editData) {
