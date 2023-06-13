@@ -7,6 +7,10 @@
     "sidebar footer footer";
 }
 
+.sidebar {
+  grid-area: sidebar;
+  height: 90vh;
+}
 
 .mainContent {
 	grid-area: mainContent;
@@ -14,37 +18,57 @@
 	min-height: 90vh;
 }
 
+.footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 
 mat-form-field{
   width: 100%;
 }
 
-.filter{
-  padding: 2rem;
+// .filter{
+//   padding: 2rem;
+// }
+
+
+// table {
+//   width: 100%;
+// }
+
+// .mat-mdc-form-field {
+//   font-size: 14px;
+//   width: 100%;
+// }
+
+// .container{
+//   max-width: 1200px;
+//   margin: 0 auto;
+// }
+
+
+.filter__container {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
 }
 
+.filter__column {
+  display: flex;
+  flex-direction: column;
+}
 
-table {
+.filter__input {
   width: 100%;
 }
 
-.mat-mdc-form-field {
-  font-size: 14px;
-  width: 100%;
+.filter__actions {
+  display: flex;
 }
 
-.container{
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media screen and (max-width: 700px) {
-
-	.mainContent{
-		width: 100%;
-	}
-
-}
 
 @media (max-width: 700px) {
   .App {
@@ -56,5 +80,14 @@ table {
       "mainContent"
       "footer";
   }
+  .sidebar {
+    height: auto;
+    width: 90%;
+    margin: auto;
+  }
+
+  .mainContent{
+		width: 100%;
+	}
 
 }

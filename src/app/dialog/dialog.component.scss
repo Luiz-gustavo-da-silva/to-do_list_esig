@@ -1,3 +1,25 @@
-mat-form-field{
-    width: 100%;
+mat-form-field {
+  width: 100%;
 }
+
+.form__container {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+.form__full-width {
+  width: 100%;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.dialog-actions__button {
+  margin-right: 5px;
+}
+

@@ -2,44 +2,46 @@
 
 <div mat-dialog-content>
   <form [formGroup]="taskForm">
-    <div style="width: 100%; display:flex; gap:1rem;">
+    <div class="form__container">
       <mat-form-field appearance="outline">
         <mat-label>Título</mat-label>
-        <input formControlName="titulo" matInput placeholder="Título" />
+        <input formControlName="title" matInput placeholder="Título" />
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Deadline</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="deadline" />
         <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle
-          matIconSuffix
-          [for]="picker"
-        ></mat-datepicker-toggle>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
 
-    <div style="width: 100%;">
+    <div class="form__full-width">
       <mat-form-field appearance="outline">
         <mat-label>Descrição</mat-label>
-        <textarea matInput formControlName="descricao" rows="6"></textarea>
+        <textarea matInput formControlName="description" rows="6"></textarea>
       </mat-form-field>
     </div>
 
-    <div style="display:flex;width: 100%; flex-direction:row; gap:1rem;">
+    <div class="form__container">
       <mat-form-field appearance="outline">
         <mat-label>Responsável</mat-label>
-        <mat-select placeholder="Responsável" formControlName="responsavel">
+        <mat-select placeholder="Responsável" formControlName="responsible">
           <mat-option value="Luiz">Luiz</mat-option>
-          <mat-option value="Luiza">Luiza</mat-option>
           <mat-option value="Raí">Raí</mat-option>
+          <mat-option value="Alisson">Alisson</mat-option>
+          <mat-option value="Carlos">Carlos</mat-option>
+          <mat-option value="Laura">Laura</mat-option>
+          <mat-option value="Gabriel">Gabriel</mat-option>
+          <mat-option value="Mariana">Mariana</mat-option>
+          <mat-option value="Daniel">Daniel</mat-option>
         </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Prioridade</mat-label>
-        <mat-select placeholder="Prioridade" formControlName="prioridade">
+        <mat-select placeholder="Prioridade" formControlName="priority">
           <mat-option value="Grave">Grave</mat-option>
           <mat-option value="Média">Médio</mat-option>
           <mat-option value="Fácil">Fácil</mat-option>
@@ -49,14 +51,16 @@
   </form>
 </div>
 
-<div mat-dialog-action style="display: flex; justify-content: flex-end; padding-left:2rem;padding-right:2rem;">
+<div class="dialog-actions">
   <button
     mat-raised-button
     color="warn"
     mat-dialog-close
-    style="margin-right: 5px"
+    class="dialog-actions__button"
   >
     Close
   </button>
-  <button mat-raised-button color="primary" (click)="addTask()">{{actionBtn}}</button>
+  <button mat-raised-button color="primary" (click)="addTask()">
+    {{ actionBtn }}
+  </button>
 </div>

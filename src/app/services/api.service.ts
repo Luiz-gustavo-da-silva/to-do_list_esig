@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin, map } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -10,7 +9,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getTask() {
-    return this.http.get<any>('api/Tasks?andamento=true');
+    return this.http.get<any>('api/Tasks?situation=true');
   }
 
   postTask(data: any) {
@@ -27,33 +26,33 @@ export class ApiService {
   }
 
   concludeTask(data: any, id: number) {
-    data.andamento = false;
+    data.situation = false;
     return this.http.put<any>(`api/Tasks/${id}`, data);
   }
-
-  filterTask(data: any) {
-    const { numero, andamento, tituloDescricao, responsavel } = data;
-    let queryString = `api/Tasks?`;
-
-    if (numero) {
-      queryString += `id=${numero}&`;
-    }
-
-    if (andamento) {
-      queryString += `andamento=${andamento}&`;
-    }
-
-    if (responsavel) {
-      queryString += `responsavel=${responsavel}&`;
-    }
 
     // Essa consulta ficou ineficiente, pois estou tratando os dados de forma local, imagino que com uma 
     // grande quantidade de dados essa busca fique completaente obsoleta, só fiz dessa forma para que seja possível através do
     // mesmo input fazer consulta em colunas diferentes, pois o in-memory-web-api não tem suporte para consultas combinadas.
 
-    if (tituloDescricao) {
-      const tituloRequest = this.http.get<any>(`${queryString}titulo=${tituloDescricao}`);
-      const descricaoRequest = this.http.get<any>(`${queryString}descricao=${tituloDescricao}`);
+  filterTask(data: any) {
+    const { number, situation, titleOrDescription, responsible } = data;
+    let queryString = `api/Tasks?`;
+
+    if (number) {
+      queryString += `id=${number}&`;
+    }
+
+    if (situation) {
+      queryString += `situation=${situation}&`;
+    }
+
+    if (responsible) {
+      queryString += `responsible=${responsible}&`;
+    }
+
+    if (titleOrDescription) {
+      const tituloRequest = this.http.get<any>(`${queryString}title=${titleOrDescription}`);
+      const descricaoRequest = this.http.get<any>(`${queryString}description=${titleOrDescription}`);
   
       return forkJoin([tituloRequest, descricaoRequest]).pipe(
         map(results => {

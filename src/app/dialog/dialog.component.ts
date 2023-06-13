@@ -22,21 +22,21 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void {
     this.taskForm = this.formBuilder.group({
       id: [],
-      titulo: ['', Validators.required],
-      responsavel: ['', Validators.required],
-      descricao: ['', Validators.required],
-      prioridade: ['', Validators.required],
+      title: ['', Validators.required],
+      responsible: ['', Validators.required],
+      description: ['', Validators.required],
+      priority: ['', Validators.required],
       deadline: ['', Validators.required],
-      andamento: true,
+      situation: true,
     });
 
     if (this.editData) {
       this.actionBtn = 'Update';
       this.taskForm.controls['id'].setValue(this.editData.id);
-      this.taskForm.controls['titulo'].setValue(this.editData.titulo);
-      this.taskForm.controls['responsavel'].setValue(this.editData.responsavel);
-      this.taskForm.controls['descricao'].setValue(this.editData.descricao);
-      this.taskForm.controls['prioridade'].setValue(this.editData.prioridade);
+      this.taskForm.controls['title'].setValue(this.editData.title);
+      this.taskForm.controls['responsible'].setValue(this.editData.responsible);
+      this.taskForm.controls['description'].setValue(this.editData.description);
+      this.taskForm.controls['priority'].setValue(this.editData.priority);
       this.taskForm.controls['deadline'].setValue(this.editData.deadline);
     }
   }
@@ -47,6 +47,7 @@ export class DialogComponent implements OnInit {
         this.api.postTask(this.taskForm.value)
         .subscribe({
           next: (res) =>{
+            
             alert('Task added successfully');
             this.taskForm.reset();
             this.dialogref.close('save');
