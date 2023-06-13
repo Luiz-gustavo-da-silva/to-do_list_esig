@@ -20,11 +20,15 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { TaskDataService } from './services/data/task-data.service';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogComponent
+    DialogComponent,
+    SidebarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

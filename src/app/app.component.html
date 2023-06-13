@@ -1,16 +1,5 @@
 <div class="App">
-  <div class="sidebar">
-    <div class="container__sidebar">
-      <div>
-        <h1 class="logo">ESIG</h1>
-      </div>
-      <div>
-        <button class="button__plus" (click)="openDialog()">
-          <mat-icon>exposure_plus_1</mat-icon>
-        </button>
-      </div>
-    </div>
-  </div>
+  <app-sidebar (getAllTaskEvent)="getAllTask()"></app-sidebar>
 
   <div class="mainContent">
     <div class="filter">
@@ -126,20 +115,11 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
-            <!-- <tr class="mat-row" *matNoDataRow>
-              <td class="mat-cell" colspan="4">
-                No data matching the filter "{{input.value}}"
-              </td>
-            </tr> -->
           </table>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="footer">
-    <div class="container__footer">
-      <p>Create by Luiz Gustavo</p>
-    </div>
-  </div>
+  <app-footer></app-footer>
 </div>
