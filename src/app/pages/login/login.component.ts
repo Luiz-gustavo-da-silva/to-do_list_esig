@@ -15,6 +15,9 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder : FormBuilder, private router : Router, private api: ApiService) {
   }
 
+  /**
+   * Inicializa o componente.
+   */
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -22,14 +25,19 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  submitLogin(){
+
+  // Esse método foi criado só para simular uma possível autenticação de um usuário  
+  /**
+   * Envia o formulário de login para autenticação.
+   */
+  submitLogin() {
     this.api.loginUser(this.loginForm.value).subscribe({
       next: (res) => {
         console.log(res);
         if (res[0]?.email && res[0]?.senha) {
-          if(res[0]?.email === this.loginForm.value.email && res[0]?.senha === this.loginForm.value.senha) {
+          if (res[0]?.email === this.loginForm.value.email && res[0]?.senha === this.loginForm.value.senha) {
             this.router.navigate(['/todopage']);
-          }else{
+          } else {
             alert('Usuário não encontrado!!!');
           }
         } else {

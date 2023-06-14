@@ -12,7 +12,7 @@ import { ApiService } from '../../services/api.service';
   templateUrl: './todopage.component.html',
   styleUrls: ['./todopage.component.scss']
 })
-export class TodopageComponent implements OnInit{
+export class TodopageComponent implements OnInit {
   title = 'to-do_list_esig';
 
   taskFilterForm!: FormGroup;
@@ -21,7 +21,6 @@ export class TodopageComponent implements OnInit{
     'id',
     'title',
     'responsible',
-    // 'description',
     'priority',
     'deadline',
     'action',
@@ -36,6 +35,9 @@ export class TodopageComponent implements OnInit{
     private api: ApiService
   ) {}
 
+  /**
+   * Inicializa o componente.
+   */
   ngOnInit(): void {
     this.taskFilterForm = this.formBuilder.group({
       number: '',
@@ -47,19 +49,26 @@ export class TodopageComponent implements OnInit{
     this.getAllTask();
   }
 
-  showDetails(row: any){
-    this.dialog.open(DialogDetailsComponent,{
-      width:'60%',
-      maxWidth:'80vw',
+  /**
+   * Abre o modal de detalhes para exibir informações detalhadas sobre uma tarefa.
+   * @param row A linha da tabela contendo os dados da tarefa.
+   */
+  showDetails(row: any) {
+    this.dialog.open(DialogDetailsComponent, {
+      width: '60%',
+      maxWidth: '80vw',
       data: row,
-    })
+    });
   }
-  
+
+  /**
+   * Abre o modal para adicionar uma nova tarefa.
+   */
   openDialog() {
     this.dialog
       .open(DialogComponent, {
-        width:'40%',
-        maxWidth:'80vw'
+        width: '40%',
+        maxWidth: '80vw'
       })
       .afterClosed()
       .subscribe((val) => {
@@ -69,11 +78,17 @@ export class TodopageComponent implements OnInit{
       });
   }
 
+  /**
+   * Limpa os filtros de pesquisa de tarefas e realiza a exibição de todas as tarefas em andamento.
+   */
   cleanFilter() {
     this.taskFilterForm.reset();
     this.getAllTask();
   }
 
+  /**
+   * Realiza a pesquisa de tarefas com base nos filtros aplicados.
+   */
   researchFiltertask() {
     if (this.taskFilterForm.value) {
       this.api.filterTask(this.taskFilterForm.value).subscribe({
@@ -89,17 +104,24 @@ export class TodopageComponent implements OnInit{
     }
   }
 
+  /**
+   * Obtém todas as tarefas que estão em aberto.
+   */
   getAllTask() {
     this.api.getTask().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);
       },
       error: (err) => {
-        alert('Error while fetchig the Records');
+        alert('Error while fetching the Records');
       },
     });
   }
 
+  /**
+   * Exclui uma tarefa pelo seu ID.
+   * @param id O ID da tarefa a ser excluída.
+   */
   deleteTask(id: number) {
     this.api.deleteTask(id).subscribe({
       next: (res) => {
@@ -112,6 +134,10 @@ export class TodopageComponent implements OnInit{
     });
   }
 
+  /**
+   * Abre o modal para editar uma tarefa.
+   * @param row A linha da tabela contendo os dados da tarefa a ser editada.
+   */
   editTask(row: any) {
     this.dialog
       .open(DialogComponent, {
@@ -126,6 +152,10 @@ export class TodopageComponent implements OnInit{
       });
   }
 
+  /**
+   * Conclui uma tarefa, marcando sua situação como concluída (false).
+   * @param row As informações referentes a linha da tabela contendo os dados da tarefa a ser concluída.
+   */
   completeTask(row: any) {
     this.api.concludeTask(row, row.id).subscribe({
       next: (res) => {

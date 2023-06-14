@@ -2,6 +2,9 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 
+/**
+ * Componente de sidebar.
+ */
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -10,12 +13,19 @@ import { DialogComponent } from '../dialog/dialog.component';
 export class SidebarComponent {
   @Output() getAllTaskEvent = new EventEmitter<void>();
 
+  /**
+   * Construtor do componente.
+   * @param dialog O serviço MatDialog para abrir o diálogo.
+   */
   constructor(private dialog: MatDialog) {}
 
+  /**
+   * Função para abrir o modal de adição/atualização de tarefa.
+   * Após o fechamento do diálogo, emite o evento "getAllTaskEvent" caso a ação tenha sido "save".
+   */
   openDialog() {
     this.dialog
       .open(DialogComponent, {
-     
       })
       .afterClosed()
       .subscribe((val) => {

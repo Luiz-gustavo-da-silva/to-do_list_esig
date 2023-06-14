@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+/**
+ * Componente modal para adicionar ou atualizar uma tarefa.
+ */
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -12,13 +15,24 @@ export class DialogComponent implements OnInit {
   taskForm!: FormGroup;
   actionBtn: string = 'Adicionar tarefa';
 
+  /**
+   * Construtor do componente DialogComponent.
+   * @param formBuilder O construtor do formulário reativo FormBuilder.
+   * @param api O serviço ApiService para comunicação com a API.
+   * @param editData Os dados de edição da tarefa, injetados por MAT_DIALOG_DATA.
+   * @param dialogRef A referência ao componente de diálogo atual, injetada por MatDialogRef.
+   */
   constructor(
     private formBuilder: FormBuilder,
     private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
-    private dialogref: MatDialogRef<DialogComponent>
+    private dialogRef: MatDialogRef<DialogComponent>
   ) {}
 
+  /**
+   * Função de inicialização do componente.
+   * Inicializa o formulário com validação e preenche os valores de edição, se houver.
+   */
   ngOnInit(): void {
     this.taskForm = this.formBuilder.group({
       id: [],
@@ -41,37 +55,45 @@ export class DialogComponent implements OnInit {
     }
   }
 
-  addTask(){
-    if(!this.editData){
-      if(this.taskForm.valid){
-        this.api.postTask(this.taskForm.value)
-        .subscribe({
-          next: (res) =>{
-            
-            alert('Task added successfully');
+  /**
+   * Função chamada ao adicionar uma tarefa.
+   * Chama o serviço API para adicionar a tarefa.
+   * Fecha o diálogo após a adição da tarefa.
+   */
+  addTask() {
+    if (!this.editData) {
+      if (this.taskForm.valid) {
+        this.api.postTask(this.taskForm.value).subscribe({
+          next: (res) => {
+            alert('Tarefa adicionada com sucesso');
             this.taskForm.reset();
-            this.dialogref.close('save');
+            this.dialogRef.close('save');
           },
-          error: () =>{
-            alert('Error while adding the product');
-          }
-        })
+          error: () => {
+            alert('Erro ao adicionar a tarefa');
+          },
+        });
       }
-    }else{
+    } else {
       this.updateTask();
     }
   }
 
+  /**
+   * Função chamada ao atualizar uma tarefa.
+   * Chama o serviço API para atualizar a tarefa.
+   * Fecha o diálogo após a atualização da tarefa.
+   */
   updateTask() {
     this.api.putTask(this.taskForm.value, this.editData.id).subscribe({
       next: (res) => {
-        alert('Updated task sucessfully!');
+        alert('Tarefa atualizada com sucesso!');
         this.taskForm.reset();
-        this.dialogref.close('update');
+        this.dialogRef.close('update');
       },
       error: (res) => {
         console.log(res);
-        alert('Error updating task!');
+        alert('Erro ao atualizar a tarefa!');
       },
     });
   }
