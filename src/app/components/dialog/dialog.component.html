@@ -56,10 +56,11 @@
     mat-raised-button
     mat-dialog-close
     class="dialog-actions__button_sair"
+    aria-label="Botão para sair do modal"
   >
     Sair
   </button>
-  <button mat-raised-button color="primary" (click)="addTask()"  class="dialog-actions__button_add">
+  <button mat-raised-button color="primary" (click)="addTask()"  class="dialog-actions__button_add" aria-label="Botão para adicionar uma tarrefa ou editar">
     {{ actionBtn }}
   </button>
 </div>

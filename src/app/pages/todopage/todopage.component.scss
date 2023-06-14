@@ -63,13 +63,13 @@ mat-form-field {
 }
 
 .dialog-actions__button_sair {
-  background-color: #ff6347 !important;
+  background-color: #c34b35 !important;
   border-radius: 5px !important;
   color: #fff !important;
 }
 
 .dialog-actions__button_add {
-  background-color: #4394eb !important;
+  background-color: #3577be !important;
   border-radius: 5px !important;
   color: #fff !important;
 }
@@ -80,12 +80,12 @@ mat-form-field {
   cursor: pointer;
 }
 
-#button__edit{
-  color: #4394eb;
+.button__edit{
+  color: #3577be;
 }
 
-#button__delete{
-  color: #ff6347;
+.button__delete{
+  color: #c34b35;
 }
 
 .conclude{
