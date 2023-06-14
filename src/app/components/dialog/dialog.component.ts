@@ -92,7 +92,6 @@ export class DialogComponent implements OnInit {
         this.dialogRef.close('update');
       },
       error: (res) => {
-        console.log(res);
         alert('Erro ao atualizar a tarefa!');
       },
     });

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin, map } from 'rxjs';
+import { forkJoin, map, Observable } from 'rxjs';
+import { FilterCriteria, Task } from '../models/TaskModel';
+
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +14,8 @@ export class ApiService {
    * Obtém as tarefas que possuem situação igual a true (Em andamento).
    * @returns Um Observable que emite uma resposta contendo as tarefas.
    */
-  getTask() {
-    return this.http.get<any>('api/Tasks?situation=true');
+  getTask(): Observable<Task[]> {
+    return this.http.get<Task[]>('api/Tasks?situation=true');
   }
 
   /**
@@ -21,8 +23,8 @@ export class ApiService {
    * @param data Os dados da tarefa a ser criada.
    * @returns Um Observable que emite uma resposta contendo a tarefa criada.
    */
-  postTask(data: any) {
-    return this.http.post<any>('api/Tasks', data);
+  postTask(data: Task):Observable<Task> {
+    return this.http.post<Task>('api/Tasks', data);
   }
 
   /**
@@ -30,8 +32,8 @@ export class ApiService {
    * @param id O ID da tarefa a ser excluída.
    * @returns Um Observable que emite uma resposta vazia.
    */
-  deleteTask(id: number) {
-    return this.http.delete<any>(`api/Tasks/${id}`);
+  deleteTask(id: number):Observable<void> {
+    return this.http.delete<void>(`api/Tasks/${id}`);
   }
 
   /**
@@ -40,8 +42,8 @@ export class ApiService {
    * @param id O ID da tarefa a ser atualizada.
    * @returns Um Observable que emite uma resposta contendo a tarefa atualizada.
    */
-  putTask(data: any, id: number) {
-    return this.http.put<any>(`api/Tasks/${id}`, data);
+  putTask(data: Task, id: number):Observable<Task> {
+    return this.http.put<Task>(`api/Tasks/${id}`, data);
   }
 
   /**
@@ -50,9 +52,9 @@ export class ApiService {
    * @param id O ID da tarefa a ser concluída.
    * @returns Um Observable que emite uma resposta contendo a tarefa concluída.
    */
-  concludeTask(data: any, id: number) {
+  concludeTask(data: Task, id: number): Observable<Task> {
     data.situation = false;
-    return this.http.put<any>(`api/Tasks/${id}`, data);
+    return this.http.put<Task>(`api/Tasks/${id}`, data);
   }
 
   //Essa consulta está ineficiente, pois estou tratando os dados localmente. 
@@ -65,7 +67,7 @@ export class ApiService {
    * @param data Os critérios de filtro.
    * @returns Um Observable que emite uma resposta contendo as tarefas filtradas.
    */
-  filterTask(data: any) {
+  filterTask(data: FilterCriteria):Observable<Task[]> {
     const { number, situation, titleOrDescription, responsible } = data;
     let queryString = `api/Tasks?`;
 
@@ -82,8 +84,8 @@ export class ApiService {
     }
 
     if (titleOrDescription) {
-      const tituloRequest = this.http.get<any>(`${queryString}title=${titleOrDescription}`);
-      const descricaoRequest = this.http.get<any>(`${queryString}description=${titleOrDescription}`);
+      const tituloRequest = this.http.get<Task[]>(`${queryString}title=${titleOrDescription}`);
+      const descricaoRequest = this.http.get<Task[]>(`${queryString}description=${titleOrDescription}`);
   
       return forkJoin([tituloRequest, descricaoRequest]).pipe(
         map(results => {
@@ -95,10 +97,8 @@ export class ApiService {
 
     queryString = queryString.slice(0, -1);
 
-    return this.http.get<any>(queryString);
+    return this.http.get<Task[]>(queryString);
   }
-
-
 
   // Esse método foi crriado só parra simular uma login de um usuário 
   /**
@@ -106,8 +106,9 @@ export class ApiService {
    * @param data Os dados de login do usuário.
    * @returns Um Observable que emite uma resposta contendo os detalhes do usuário logado.
    */
-  loginUser(data: any){
+  loginUser(data: any): Observable<any>{
     const { login, senha } = data;
     return this.http.get<any>(`api/Users?login=${login}&senha=${senha}`);
   }
 }
+

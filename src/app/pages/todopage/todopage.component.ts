@@ -4,8 +4,9 @@ import { DialogDetailsComponent } from '../../components/dialog-details/dialog-d
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
+import { Task } from 'src/app/models/TaskModel';
 
 @Component({
   selector: 'app-todopage',
@@ -53,7 +54,7 @@ export class TodopageComponent implements OnInit {
    * Abre o modal de detalhes para exibir informações detalhadas sobre uma tarefa.
    * @param row A linha da tabela contendo os dados da tarefa.
    */
-  showDetails(row: any) {
+  showDetails(row: Task) {
     this.dialog.open(DialogDetailsComponent, {
       width: '60%',
       maxWidth: '80vw',
@@ -93,7 +94,6 @@ export class TodopageComponent implements OnInit {
     if (this.taskFilterForm.value) {
       this.api.filterTask(this.taskFilterForm.value).subscribe({
         next: (res) => {
-          console.log(res);
           this.dataSource = new MatTableDataSource(res);
         },
         error: (err) => {
@@ -138,7 +138,8 @@ export class TodopageComponent implements OnInit {
    * Abre o modal para editar uma tarefa.
    * @param row A linha da tabela contendo os dados da tarefa a ser editada.
    */
-  editTask(row: any) {
+  editTask(row: Task) {
+    console.log(row);
     this.dialog
       .open(DialogComponent, {
         width: '40%',
@@ -156,7 +157,7 @@ export class TodopageComponent implements OnInit {
    * Conclui uma tarefa, marcando sua situação como concluída (false).
    * @param row As informações referentes a linha da tabela contendo os dados da tarefa a ser concluída.
    */
-  completeTask(row: any) {
+  completeTask(row: Task) {
     this.api.concludeTask(row, row.id).subscribe({
       next: (res) => {
         alert('Conclusão task sucessfully!');
