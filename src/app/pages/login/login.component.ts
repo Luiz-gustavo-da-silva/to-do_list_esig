@@ -25,12 +25,15 @@ export class LoginComponent implements OnInit {
   submitLogin(){
     this.api.loginUser(this.loginForm.value).subscribe({
       next: (res) => {
-        
-        this.router.navigate(['/todopage']);
+        console.log(res);
+        if (res[0]?.email && res[0]?.senha) {
+          this.router.navigate(['/todopage']);
+        } else {
+          alert('Usuário não encontrado!!!');
+        }
       },
-      error: (err) => {
+      error: () => {
         alert('Error na requisição do login');
-       
       },
     });
   }
