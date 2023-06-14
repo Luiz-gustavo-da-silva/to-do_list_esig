@@ -22,13 +22,15 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { TaskDataService } from './services/data/task-data.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { DialogDetailsComponent } from './dialog-details/dialog-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DialogComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    DialogDetailsComponent
   ],
   imports: [
     BrowserModule,

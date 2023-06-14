@@ -1,5 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { DialogComponent } from './dialog/dialog.component';
+import { DialogDetailsComponent } from './dialog-details/dialog-details.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -17,12 +18,14 @@ export class AppComponent implements OnInit {
   taskFilterForm!: FormGroup;
 
   displayedColumns: string[] = [
+    'id',
     'title',
     'responsible',
-    'description',
+    // 'description',
     'priority',
     'deadline',
     'action',
+    'detalhes'
   ];
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -44,6 +47,13 @@ export class AppComponent implements OnInit {
     this.getAllTask();
   }
 
+  showDetails(row: any){
+    this.dialog.open(DialogDetailsComponent,{
+      width:'60%',
+      maxWidth:'80vw',
+      data: row,
+    })
+  }
   
   openDialog() {
     this.dialog

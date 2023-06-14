@@ -41,6 +41,7 @@ mat-form-field{
   box-sizing: border-box;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  position: sticky;
 }
 
 .filter__container {
@@ -51,7 +52,6 @@ mat-form-field{
 .filter__container div{
   padding: 0.2rem;
 }
-
 
 .mainContent__container_h1{
   margin-top: 2rem;
@@ -72,6 +72,12 @@ mat-form-field{
   background-color: #4394EB !important;
   border-radius: 5px !important;
   color: #FFF !important;
+}
+
+.showdetails{
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 @media (max-width: 700px) {

@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Tarefa: {{ showData.title }}</h1>
+<div mat-dialog-content>
+  <div>
+    <h2>Número:</h2>
+    <p>{{ showData.id }}</p>
+  </div>
+
+  <div>
+    <h2>Responsável:</h2>
+    <p>{{ showData.responsible }}</p>
+  </div>
+
+  <div>
+    <h2>Prioridade:</h2>
+    <p>{{ showData.priority }}</p>
+  </div>
+
+  <div>
+    <h2>Deadline:</h2>
+    <p>{{ showData.deadline }}</p>
+  </div>
+
+  <div>
+    <h2>Descrição:</h2>
+    <p>{{ showData.description }}</p>
+  </div>
+
+  <div>
+    <h2>Situação:</h2>
+    <p>
+      <span *ngIf="showData.situation; else concluido">Em andamento</span>
+      <ng-template #concluido>Concluído</ng-template>
+    </p>
+  </div>
+
+  <button (click)="closeModal()">Sair</button>
+</div>
