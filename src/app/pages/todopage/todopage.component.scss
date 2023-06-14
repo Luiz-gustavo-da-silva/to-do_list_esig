@@ -9,7 +9,8 @@
 
 .sidebar {
   grid-area: sidebar;
-  height: 90vh;
+  height: 100%;
+  border-right: solid 1px #cfd1d39a;
 }
 
 .mainContent {
@@ -39,7 +40,7 @@ mat-form-field {
   box-sizing: border-box;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  position: sticky;
+  margin-top: 1rem;
 }
 
 .filter__container {
@@ -78,6 +79,20 @@ mat-form-field {
   border: none;
   cursor: pointer;
 }
+
+#button__edit{
+  color: #4394eb;
+}
+
+#button__delete{
+  color: #ff6347;
+}
+
+.conclude{
+  color: #006400;
+}
+
+
 
 @media (max-width: 700px) {
   .App {
