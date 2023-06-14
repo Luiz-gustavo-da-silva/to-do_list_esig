@@ -17,10 +17,10 @@ export class AppComponent implements OnInit {
   taskFilterForm!: FormGroup;
 
   displayedColumns: string[] = [
-    'titulo',
-    'responsavel',
-    'descricao',
-    'prioridade',
+    'title',
+    'responsible',
+    'description',
+    'priority',
     'deadline',
     'action',
   ];
@@ -35,19 +35,21 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskFilterForm = this.formBuilder.group({
-      numero:"",
-      andamento:"",
-      tituloDescricao:"",
-      responsavel:"",
+      number: '',
+      situation: '',
+      titleOrDescription: '',
+      responsible: '',
     });
 
     this.getAllTask();
   }
 
+  
   openDialog() {
     this.dialog
       .open(DialogComponent, {
-        width: '40%',
+        width:'40%',
+        maxWidth:'80vw'
       })
       .afterClosed()
       .subscribe((val) => {
@@ -68,7 +70,6 @@ export class AppComponent implements OnInit {
         next: (res) => {
           console.log(res);
           this.dataSource = new MatTableDataSource(res);
-          //alert('Error no filtro');
         },
         error: (err) => {
           alert('Error no filtro');
@@ -82,7 +83,6 @@ export class AppComponent implements OnInit {
     this.api.getTask().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);
-        //this.dataSource.paginator = this.paginator;
       },
       error: (err) => {
         alert('Error while fetchig the Records');
@@ -116,7 +116,7 @@ export class AppComponent implements OnInit {
       });
   }
 
-  concluirTask(row: any) {
+  completeTask(row: any) {
     this.api.concludeTask(row, row.id).subscribe({
       next: (res) => {
         alert('Conclusão task sucessfully!');

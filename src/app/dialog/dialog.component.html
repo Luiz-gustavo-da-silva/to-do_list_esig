@@ -54,13 +54,12 @@
 <div class="dialog-actions">
   <button
     mat-raised-button
-    color="warn"
     mat-dialog-close
-    class="dialog-actions__button"
+    class="dialog-actions__button_sair"
   >
-    Close
+    Sair
   </button>
-  <button mat-raised-button color="primary" (click)="addTask()">
+  <button mat-raised-button color="primary" (click)="addTask()"  class="dialog-actions__button_add">
     {{ actionBtn }}
   </button>
 </div>

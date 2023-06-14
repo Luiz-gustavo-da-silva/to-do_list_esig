@@ -1,6 +1,6 @@
 .sidebar__button--plus {
   border: none;
-  background: #0056ab;
+  background-color: #4394EB;
   color: #fff;
   cursor: pointer;
   border-radius: 50%;
@@ -11,14 +11,14 @@
 }
 
 .sidebar__button--plus:hover {
-  background: #0056abe4;
+  background: #219bcfef;
   transition: 0.6s;
 }
 
 .sidebar__container {
   background-color: #fcfcfcd3;
   height: 100%;
-  width: 150px;
+  width: 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,6 +31,10 @@
   width: 8vmax;
 }
 
+// .teste {
+//   width: 100%;
+// }
+
 @media (max-width: 700px) {
   .sidebar__container {
     height: auto;
@@ -40,5 +44,13 @@
     width: 100%;
     padding: 0;
     justify-content: space-between;
+  }
+
+  .sidebar__container div {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .teste {
+    width: 40%;
   }
 }

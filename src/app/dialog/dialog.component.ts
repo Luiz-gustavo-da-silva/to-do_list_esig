@@ -10,7 +10,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class DialogComponent implements OnInit {
   taskForm!: FormGroup;
-  actionBtn: string = 'Save';
+  actionBtn: string = 'Adicionar tarefa';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,7 +31,7 @@ export class DialogComponent implements OnInit {
     });
 
     if (this.editData) {
-      this.actionBtn = 'Update';
+      this.actionBtn = 'Atualizar';
       this.taskForm.controls['id'].setValue(this.editData.id);
       this.taskForm.controls['title'].setValue(this.editData.title);
       this.taskForm.controls['responsible'].setValue(this.editData.responsible);

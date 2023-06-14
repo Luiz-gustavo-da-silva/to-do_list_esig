@@ -14,12 +14,23 @@ mat-form-field {
 
 .dialog-actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
   padding-left: 2rem;
   padding-right: 2rem;
+  gap: 1rem;
 }
 
-.dialog-actions__button {
-  margin-right: 5px;
+.dialog-actions__button_sair{
+  background-color: #ff6347;
+  border-radius: 5px;
+  color: #FFF;
+  width: 35%;
 }
 
+.dialog-actions__button_add{
+  background-color: #4394EB;
+  border-radius: 5px;
+  color: #FFF;
+  width: 35%;
+}

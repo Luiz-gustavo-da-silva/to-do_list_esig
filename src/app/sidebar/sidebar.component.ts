@@ -15,7 +15,7 @@ export class SidebarComponent {
   openDialog() {
     this.dialog
       .open(DialogComponent, {
-        width: '40%',
+     
       })
       .afterClosed()
       .subscribe((val) => {
