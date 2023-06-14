@@ -13,7 +13,6 @@ export class ApiService {
   }
 
   postTask(data: any) {
-    // console.log(data);
     return this.http.post<any>('api/Tasks', data);
   }
 
@@ -30,9 +29,11 @@ export class ApiService {
     return this.http.put<any>(`api/Tasks/${id}`, data);
   }
 
-    // Essa consulta ficou ineficiente, pois estou tratando os dados de forma local, imagino que com uma 
-    // grande quantidade de dados essa busca fique completaente obsoleta, só fiz dessa forma para que seja possível através do
-    // mesmo input fazer consulta em colunas diferentes, pois o in-memory-web-api não tem suporte para consultas combinadas.
+  //Essa consulta está ineficiente, pois estou tratando os dados localmente. 
+  //Imagino que com uma grande quantidade de dados, essa abordagem se torne 
+  //completamente obsoleta. No entanto, optei por fazê-la dessa forma para 
+  //permitir consultas em colunas diferentes usando o in-memory-web-api, que
+  //não suporta consultas combinadas.
 
   filterTask(data: any) {
     const { number, situation, titleOrDescription, responsible } = data;

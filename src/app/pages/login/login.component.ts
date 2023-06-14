@@ -27,7 +27,11 @@ export class LoginComponent implements OnInit {
       next: (res) => {
         console.log(res);
         if (res[0]?.email && res[0]?.senha) {
-          this.router.navigate(['/todopage']);
+          if(res[0]?.email === this.loginForm.value.email && res[0]?.senha === this.loginForm.value.senha) {
+            this.router.navigate(['/todopage']);
+          }else{
+            alert('Usuário não encontrado!!!');
+          }
         } else {
           alert('Usuário não encontrado!!!');
         }
