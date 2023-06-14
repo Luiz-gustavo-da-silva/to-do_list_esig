@@ -122,6 +122,10 @@ export class TaskDataService implements InMemoryDbService {
       },
     ];
 
-    return { Tasks };
+    const Users = [{
+      email:'luiz@gmail.com',
+      senha:'1234',
+    }]
+    return { Tasks, Users };
   }
 }

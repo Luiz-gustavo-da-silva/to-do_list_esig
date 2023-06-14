@@ -13,7 +13,7 @@ export class ApiService {
   }
 
   postTask(data: any) {
-    console.log(data);
+    // console.log(data);
     return this.http.post<any>('api/Tasks', data);
   }
 
@@ -65,5 +65,10 @@ export class ApiService {
     queryString = queryString.slice(0, -1);
 
     return this.http.get<any>(queryString);
+  }
+
+  loginUser(data:any){
+    const {login, senha} = data;
+    return this.http.get<any>(`api/Users?login=${login}&senha=${senha}`);
   }
 }

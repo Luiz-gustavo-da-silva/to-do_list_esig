@@ -1,0 +1,20 @@
+.container__button-sair{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.button__sair{
+    background-color: #ff6347;
+    border-radius: 5px;
+    color: #FFF;
+    width: 35%;
+    border:none;
+    cursor:pointer;
+}
+
+@media (max-width: 700px) {
+    .button__sair{
+        width: 50%;
+    } 
+}

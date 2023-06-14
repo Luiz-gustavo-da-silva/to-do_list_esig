@@ -1,0 +1,29 @@
+<div class="login__container centralize">
+  <form [formGroup]="loginForm" (submit)="submitLogin()">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input formControlName="email" matInput placeholder="Email" />
+    </mat-form-field>
+
+    <!-- <div
+      class="mensagem-erro"
+      *ngIf="loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.errors?.['touched']"
+    >
+      Email Obrigatório
+    </div>
+
+    <div
+      class="mensagem-erro"
+      *ngIf="loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.errors?.['touched']"
+    >
+      Formato inválido
+    </div> -->
+
+    <mat-form-field appearance="outline">
+      <mat-label>Senha</mat-label>
+      <input formControlName="senha" matInput placeholder="Senha" type="password"/>
+    </mat-form-field>
+
+    <button type="submit" class="vutton__submit" [disabled]="!loginForm.valid">Enviar</button>
+  </form>
+</div>
