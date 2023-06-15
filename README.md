@@ -28,9 +28,7 @@ Ao lado da coluna "Action", há uma coluna "Detalhes", que permite ao usuário v
 
 - c) Fiz um pseudo controle de autenticação (Não fiz geração de token), o usuário pode acessar o sistema com o login: luiz@gmail.com e senha: 1234. 
 
-- d) Criei algumas telas/modais extras, sendo elas o modal detalhes e a tela de login.
-
-- f) Publiquei o projeto no Herukou. 
+- d) Criei algumas telas/modais extras, sendo elas o modal detalhes e a tela de login. 
 
 - g) Recurso de acessibilidade alto constraste (Para pessoas com baixa visão). 
 
