@@ -6,7 +6,7 @@ export class TaskDataService implements InMemoryDbService {
       {
         id: 1,
         title: 'teste1',
-        deadline: '2023-06-13T03:00:00.000Z',
+        deadline: '2023-06-16',
         description: 'aaaa',
         responsible: 'Luiz',
         priority: 'Média',
@@ -15,7 +15,7 @@ export class TaskDataService implements InMemoryDbService {
       {
         id: 2,
         title: 'teste2',
-        deadline: '2023-06-13T03:00:00.000Z',
+        deadline: '2023-06-16',
         description: 'bbbb',
         responsible: 'Luiza',
         priority: 'Grave',
@@ -24,7 +24,7 @@ export class TaskDataService implements InMemoryDbService {
       {
         id: 3,
         title: 'teste3',
-        deadline: '2023-06-13T03:00:00.000Z',
+        deadline: '2023-06-16',
         description: 'cccc',
         responsible: 'Julia',
         priority: 'Fácil',
@@ -33,7 +33,7 @@ export class TaskDataService implements InMemoryDbService {
       {
         id: 4,
         title: 'teste4',
-        deadline: '2023-06-13T03:00:00.000Z',
+        deadline: '2023-06-16',
         description: 'dddd',
         responsible: 'Raí',
         priority: 'Média',
@@ -42,7 +42,7 @@ export class TaskDataService implements InMemoryDbService {
       {
         id: 5,
         title: 'teste5',
-        deadline: '2023-06-13T03:00:00.000Z',
+        deadline: '2023-06-16',
         description: 'eeee',
         responsible: 'Alisson',
         priority: 'Grave',
@@ -51,7 +51,7 @@ export class TaskDataService implements InMemoryDbService {
       {
         id: 6,
         title: 'teste6',
-        deadline: '2023-06-13T03:00:00.000Z',
+        deadline: '2023-06-16',
         description: 'ffff',
         responsible: 'Laura',
         priority: 'Fácil',
@@ -60,7 +60,7 @@ export class TaskDataService implements InMemoryDbService {
       {
         id: 7,
         title: 'teste7',
-        deadline: '2023-06-13T03:00:00.000Z',
+        deadline: '2023-06-16',
         description: 'gggg',
         responsible: 'Gabriel',
         priority: 'Média',
