@@ -1,6 +1,14 @@
 # Desafio gerenciador de tarefas ESIG
 
-## Luiz Gustavoda Silva
+## Luiz Gustavo da Silva
+
+### Links
+
+link do site hospedado no Netify:
+
+https://main--lucent-empanada-e79c23.netlify.app/todopage
+
+OBS.: Desculpe pelo link estranho, isso ocorreu porque não comprei um domínio para o site.
 
 ### Resumo
 
@@ -26,18 +34,13 @@ Ao lado da coluna "Action", há uma coluna "Detalhes", que permite ao usuário v
 
 - b) Usei o In Memory BD para simulação do back-end da aplicação.
 
-- c) Fiz um pseudo controle de autenticação (Não fiz geração de token), o usuário pode acessar o sistema com o login: luiz@gmail.com e senha: 1234. 
-
 - d) Criei algumas telas/modais extras, sendo elas o modal detalhes e a tela de login.
 
-- f) Publiquei o projeto no Herukou. 
-
-- g) Recurso de acessibilidade alto constraste (Para pessoas com baixa visão). 
+- g) Recurso de acessibilidade alto constraste (Para pessoas com baixa visão).
 
 ### Acessibilidade
 
 ![Texto Alternativo](./src/assets/acessibilidade%20avalia%C3%A7%C3%A3o.png)
-
 
 Sendo a acessibilidade um recurso extremamente importante, considerei a inclusão de todos os usuários ao desenvolver esta aplicação. A imagem acima é um teste automatizado realizado com a ferramenta Accessibility Insights, que avalia recursos de acessibilidade. Como demonstrado, não foram encontradas falhas que comprometam a inclusão de pessoas com deficiência. Os testes manuais também não apresentaram erros.
 
@@ -54,29 +57,26 @@ Este guia fornece um passo a passo para clonar e executar um projeto Angular a p
 
 ### Passos
 
-1. **Clonar o repositório**: Abra o terminal ou prompt de comando e navegue até o diretório onde você deseja clonar o projeto. Execute o seguinte comando para clonar o repositório:
+1. **Clonar o repositório**:  
 
-`git clone <URL_do_repositório>`
+`git clone https://github.com/Luiz-gustavo-da-silva/to-do_list_esig.git`
 
-Substitua `<URL_do_repositório>` pela URL do repositório Git que contém o projeto Angular.
+2. **Navegue até o diretório criado**
 
-2. **Instalar as dependências**: Navegue até o diretório do projeto clonado e execute o comando abaixo para instalar as dependências do projeto:
+`cd to-do_list_esig`
 
-`cd <diretório_do_projeto>
-npm install`
+3. **Instalar as dependências**:
 
+`npm install`
 
-3. **Iniciar o servidor de desenvolvimento**: Após a conclusão da instalação das dependências, execute o seguinte comando para iniciar o servidor de desenvolvimento do Angular:
+4. **Iniciar o servidor de desenvolvimento**:
 
 `ng serve`
 
-
 Isso iniciará o servidor de desenvolvimento e irá compilar e servir o projeto Angular localmente.
 
-4. **Acessar o projeto**: Abra um navegador da web e acesse o seguinte URL (Por padrão o projeto abri na porta 4200, mas pode abrir em outra porta):
+5. **Acessar o projeto**: Por padrão o projeto abri na porta 4200, mas pode abrir em outra porta:
 
 `http://localhost:4200`
 
-
-O projeto Angular será carregado e você poderá visualizá-lo e interagir com ele no navegador.
 
