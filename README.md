@@ -3,14 +3,11 @@
 ## Luiz Gustavoda Silva
 
 ### Resumo
+
 Projeto criado para a resolução do desafio de estágio front-end da empresa ESIG. O objetivo desse projeto é desenvolver um gerenciador de tarefas simples. A aplicação permitirá aos usuários criar,  atualizar, remover e listar uma tarefa.
 
-### Link do Mockup
 
-https://www.figma.com/file/YVYKpDQRHYHGOP617lMXiD/Mockup-Esig?type=design&node-id=0-1&t=wFxXGqAue5a5QRDT-0
-
-
-### instruções para uso da aplicação/descrição do que foi feito
+### Instruções para uso da aplicação/descrição do que foi feito
 
 Ao acessar a aplicação, os usuários serão recebidos por uma tela de login, onde poderão autenticar-se e entrar na aplicação. Utilize o seguinte email: luiz@gmail.com e senha: 1234 para realizar a autenticação.
 
@@ -23,7 +20,7 @@ Na coluna "Action" da tabela, os usuários terão opções para editar, excluir 
 Ao lado da coluna "Action", há uma coluna "Detalhes", que permite ao usuário visualizar todas as informações relacionadas a uma determinada tarefa.
   
 
-### itens feitos
+### Itens feitos
 
 - a) Criei uma aplicação SPA utilizando Angular na versão mais recente.
 
@@ -35,13 +32,16 @@ Ao lado da coluna "Action", há uma coluna "Detalhes", que permite ao usuário v
 
 - f) Publiquei o projeto no Herukou. 
 
+- g) Recurso de acessibilidade alto constraste (Para pessoas com baixa visão). 
+
 ### Acessibilidade
 
 ![Texto Alternativo](./src/assets/acessibilidade%20avalia%C3%A7%C3%A3o.png)
 
 
-Sendo a acessibilidade um recurso extremamente importante, considerei a inclusão de todos os usuários ao desenvolver esta aplicação. A imagem acima é um exemplo de um teste automatizado realizado com a ferramenta Accessibility Insights, que avalia recursos de acessibilidade. Como demonstrado, não foram encontradas falhas que comprometam a inclusão de pessoas com deficiência. Os testes manuais também não apresentaram erros.
+Sendo a acessibilidade um recurso extremamente importante, considerei a inclusão de todos os usuários ao desenvolver esta aplicação. A imagem acima é um teste automatizado realizado com a ferramenta Accessibility Insights, que avalia recursos de acessibilidade. Como demonstrado, não foram encontradas falhas que comprometam a inclusão de pessoas com deficiência. Os testes manuais também não apresentaram erros.
 
+Além disso, considerando também as necessidades das pessoas com baixa visão, implementei o recurso de alto contraste, que proporciona uma leitura mais acessível das informações (para ativá-lo, basta clicar no segundo botão à esquerda da página).
 
 ### Passo a passo para rodar o programa localmente
 
