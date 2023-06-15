@@ -8,7 +8,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Task } from 'src/app/models/TaskModel';
 
-
 @Component({
   selector: 'app-todopage',
   templateUrl: './todopage.component.html',
@@ -16,11 +15,8 @@ import { Task } from 'src/app/models/TaskModel';
 })
 export class TodopageComponent implements OnInit {
   panelOpenState = false;
-
   title = 'to-do_list_esig';
-
   taskFilterForm!: FormGroup;
-
   displayedColumns: string[] = [
     'id',
     'title',
@@ -83,7 +79,7 @@ export class TodopageComponent implements OnInit {
   }
 
   /**
-   * Limpa os filtros de pesquisa de tarefas e realiza a exibição de todas as tarefas em andamento.
+   * Limpa os filtros de pesquisa de tarefas e exibe todas as tarefas em andamento.
    */
   cleanFilter() {
     this.taskFilterForm.reset();
@@ -100,7 +96,7 @@ export class TodopageComponent implements OnInit {
           this.dataSource = new MatTableDataSource(res);
         },
         error: (err) => {
-          alert('Error no filtro');
+          alert('Erro ao filtrar tarefas');
           this.getAllTask();
         },
       });
@@ -108,7 +104,7 @@ export class TodopageComponent implements OnInit {
   }
 
   /**
-   * Obtém todas as tarefas que estão em aberto.
+   * Obtém todas as tarefas em aberto.
    */
   getAllTask() {
     this.api.getTask().subscribe({
@@ -116,7 +112,7 @@ export class TodopageComponent implements OnInit {
         this.dataSource = new MatTableDataSource(res);
       },
       error: (err) => {
-        alert('Error while fetching the Records');
+        alert('Erro ao buscar os registros');
       },
     });
   }
@@ -128,11 +124,11 @@ export class TodopageComponent implements OnInit {
   deleteTask(id: number) {
     this.api.deleteTask(id).subscribe({
       next: (res) => {
-        alert('delete task sucessfully!');
+        alert('Tarefa excluída com sucesso!');
         this.getAllTask();
       },
       error: () => {
-        alert('error delet task!');
+        alert('Erro ao excluir tarefa!');
       },
     });
   }
@@ -158,16 +154,16 @@ export class TodopageComponent implements OnInit {
 
   /**
    * Conclui uma tarefa, marcando sua situação como concluída (false).
-   * @param row As informações referentes a linha da tabela contendo os dados da tarefa a ser concluída.
+   * @param row As informações referentes à linha da tabela contendo os dados da tarefa a ser concluída.
    */
   completeTask(row: Task) {
     this.api.concludeTask(row, row.id).subscribe({
       next: (res) => {
-        alert('Conclusão task sucessfully!');
+        alert('Tarefa concluída com sucesso!');
         this.getAllTask();
       },
       error: () => {
-        alert('error delet task!');
+        alert('Erro ao concluir tarefa!');
       },
     });
   }
