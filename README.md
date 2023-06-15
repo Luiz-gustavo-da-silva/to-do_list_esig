@@ -56,26 +56,26 @@ Este guia fornece um passo a passo para clonar e executar um projeto Angular a p
 
 1. **Clonar o repositório**: Abra o terminal ou prompt de comando e navegue até o diretório onde você deseja clonar o projeto. Execute o seguinte comando para clonar o repositório:
 
-git clone <URL_do_repositório>
+`git clone <URL_do_repositório>`
 
 Substitua `<URL_do_repositório>` pela URL do repositório Git que contém o projeto Angular.
 
 2. **Instalar as dependências**: Navegue até o diretório do projeto clonado e execute o comando abaixo para instalar as dependências do projeto:
 
-cd <diretório_do_projeto>
-npm install
+`cd <diretório_do_projeto>
+npm install`
 
 
 3. **Iniciar o servidor de desenvolvimento**: Após a conclusão da instalação das dependências, execute o seguinte comando para iniciar o servidor de desenvolvimento do Angular:
 
-ng serve
+`ng serve`
 
 
 Isso iniciará o servidor de desenvolvimento e irá compilar e servir o projeto Angular localmente.
 
 4. **Acessar o projeto**: Abra um navegador da web e acesse o seguinte URL (Por padrão o projeto abri na porta 4200, mas pode abrir em outra porta):
 
-http://localhost:4200
+`http://localhost:4200`
 
 
 O projeto Angular será carregado e você poderá visualizá-lo e interagir com ele no navegador.
