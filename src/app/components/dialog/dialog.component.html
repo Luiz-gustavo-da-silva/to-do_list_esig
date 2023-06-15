@@ -21,6 +21,7 @@
             id="titulo"
             placeholder="Ex.: pastel"
             [ngClass]="{ 'input-contrast': themeService.isHighContrastMode }"
+            aria-label="Campo para o título"
           />
         </div>
 
@@ -32,6 +33,7 @@
             id="deadline"
             placeholder=""
             [ngClass]="{ 'input-contrast': themeService.isHighContrastMode }"
+            aria-label="Campo para data limite"
           />
         </div>
       </div>
@@ -46,6 +48,7 @@
             placeholder="Ex.: Comer pastel"
             rows="6"
             [ngClass]="{ 'input-contrast': themeService.isHighContrastMode }"
+            aria-label="Campo para descrição da tarefa"
           ></textarea>
         </div>
       </div>
@@ -59,6 +62,7 @@
             id="responsavel"
             formControlName="responsible"
             [ngClass]="{ 'input-contrast': themeService.isHighContrastMode }"
+            aria-label="select para atribuir um responsável"
           >
             <option disabled selected value="">Ex.: Luiz</option>
             <option value="Luiz">Luiz</option>
@@ -81,6 +85,7 @@
             id="prioridade"
             formControlName="priority"
             [ngClass]="{ 'input-contrast': themeService.isHighContrastMode }"
+            aria-label="select para setar a gravidade da tarefa"
           >
             <option disabled selected value="">Ex.: Grave</option>
             <option value="Grave">Grave</option>
