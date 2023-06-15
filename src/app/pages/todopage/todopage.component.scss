@@ -2,9 +2,8 @@
   display: grid;
   grid-template-columns: 0.2fr 1fr 1fr;
   grid-template-rows: 1fr 0.1fr;
-  grid-template-areas:
-    "sidebar mainContent mainContent"
-    "sidebar footer footer";
+  grid-template-areas: "sidebar mainContent mainContent"
+                       "sidebar footer footer";
 }
 
 .sidebar {
@@ -38,14 +37,13 @@ mat-form-field {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 0;
   margin-top: 1rem;
 }
 
 .filter__container {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -62,16 +60,19 @@ mat-form-field {
   font-weight: 400;
 }
 
-.dialog-actions__button_sair {
-  background-color: #c34b35 !important;
+.dialog-actions__button_sair,
+.dialog-actions__button_add {
   border-radius: 5px !important;
   color: #fff !important;
+  width: 100%;
+}
+
+.dialog-actions__button_sair {
+  background-color: #c34b35 !important;
 }
 
 .dialog-actions__button_add {
   background-color: #3577be !important;
-  border-radius: 5px !important;
-  color: #fff !important;
 }
 
 .showdetails {
@@ -80,15 +81,15 @@ mat-form-field {
   cursor: pointer;
 }
 
-.button__edit{
+.button__edit {
   color: #3577be;
 }
 
-.button__delete{
+.button__delete {
   color: #c34b35;
 }
 
-.conclude{
+.conclude {
   color: #006400;
 }
 
@@ -96,21 +97,21 @@ mat-form-field {
   margin-left: 8px;
 }
 
-
 @media (max-width: 1000px) {
   .App {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.1fr 3fr 0.1fr;
-    grid-template-areas:
-      "sidebar"
-      "mainContent"
-      "footer";
+    grid-template-areas: "sidebar"
+                         "mainContent"
+                         "footer";
   }
+
   .sidebar {
     height: auto;
     width: 90%;
     margin: auto;
+    border-right: none;
   }
 
   .mainContent {
@@ -125,26 +126,21 @@ mat-form-field {
   .filter {
     padding: 1rem;
   }
+
   .filter__container div {
     width: 100%;
   }
 
-  .dialog-actions__button_sair {
-    width: 100%;
-  }
-
+  .dialog-actions__button_sair,
   .dialog-actions__button_add {
     width: 100%;
   }
+
   .table {
     overflow-x: auto;
   }
 
-  .sidebar {
-    border-right: none;
-  }
-  .rep_invisible{
+  .rep_invisible {
     display: none;
   }
-
 }
