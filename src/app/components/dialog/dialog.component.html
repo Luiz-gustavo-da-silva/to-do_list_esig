@@ -1,66 +1,119 @@
-<h1 mat-dialog-title>Adicionar tarefa</h1>
-
-<div mat-dialog-content>
-  <form [formGroup]="taskForm">
-    <div class="form__container">
-      <mat-form-field appearance="outline">
-        <mat-label>Título</mat-label>
-        <input formControlName="title" matInput placeholder="Título" />
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Deadline</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="deadline" />
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </div>
-
-    <div class="form__full-width">
-      <mat-form-field appearance="outline">
-        <mat-label>Descrição</mat-label>
-        <textarea matInput formControlName="description" rows="6"></textarea>
-      </mat-form-field>
-    </div>
-
-    <div class="form__container">
-      <mat-form-field appearance="outline">
-        <mat-label>Responsável</mat-label>
-        <mat-select placeholder="Responsável" formControlName="responsible">
-          <mat-option value="Luiz">Luiz</mat-option>
-          <mat-option value="Raí">Raí</mat-option>
-          <mat-option value="Alisson">Alisson</mat-option>
-          <mat-option value="Carlos">Carlos</mat-option>
-          <mat-option value="Laura">Laura</mat-option>
-          <mat-option value="Gabriel">Gabriel</mat-option>
-          <mat-option value="Mariana">Mariana</mat-option>
-          <mat-option value="Daniel">Daniel</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Prioridade</mat-label>
-        <mat-select placeholder="Prioridade" formControlName="priority">
-          <mat-option value="Grave">Grave</mat-option>
-          <mat-option value="Média">Médio</mat-option>
-          <mat-option value="Fácil">Fácil</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </form>
-</div>
-
-<div class="dialog-actions">
-  <button
-    mat-raised-button
-    mat-dialog-close
-    class="dialog-actions__button_sair"
-    aria-label="Botão para sair do modal"
+<div style="border: solid 1px #fff">
+  <h1
+    mat-dialog-title
+    [ngClass]="{ 'high-contrast': themeService.isHighContrastMode }"
   >
-    Sair
-  </button>
-  <button mat-raised-button color="primary" (click)="addTask()"  class="dialog-actions__button_add" aria-label="Botão para adicionar uma tarrefa ou editar">
-    {{ actionBtn }}
-  </button>
+    Adicionar tarefa
+  </h1>
+
+  <div
+    mat-dialog-content
+    [ngClass]="{ 'high-contrast': themeService.isHighContrastMode }"
+  >
+    <form [formGroup]="taskForm">
+      <div class="form__container">
+
+        <div>
+          <label for="titulo">Título</label>
+          <input
+            type="text"
+            formControlName="title"
+            id="titulo"
+            placeholder="Ex.: pastel"
+            [ngClass]="{ 'input-contrast': themeService.isHighContrastMode }"
+          />
+        </div>
+
+        <div>
+          <label for="deadline">Deadline</label>
+          <input
+            type="date"
+            formControlName="deadline"
+            id="deadline"
+            placeholder=""
+            [ngClass]="{ 'input-contrast': themeService.isHighContrastMode }"
+          />
+        </div>
+      </div>
+
+      <div class="form__full-width">
+
+        <div>
+          <label for="descricao">Descrição</label>
+          <textarea
+            formControlName="description"
+            id="descricao"
+            placeholder="Ex.: Comer pastel"
+            rows="6"
+            [ngClass]="{ 'input-contrast': themeService.isHighContrastMode }"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="form__container">
+
+        <div>
+          <label for="responsavel">Responsável</label>
+          <select
+            placeholder="Responsável"
+            id="responsavel"
+            formControlName="responsible"
+            [ngClass]="{ 'input-contrast': themeService.isHighContrastMode }"
+          >
+            <option disabled selected value="">Ex.: Luiz</option>
+            <option value="Luiz">Luiz</option>
+            <option value="Raí">Raí</option>
+            <option value="Alisson">Alisson</option>
+            <option value="Carlos">Carlos</option>
+            <option value="Laura">Laura</option>
+            <option value="Gabriel">Gabriel</option>
+            <option value="Mariana">Mariana</option>
+            <option value="Daniel">Daniel</option>
+            <option value="Luiza">Luiza</option>
+            <option value="Julia">julia</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="prioridade">Prioridade</label>
+          <select
+            placeholder="Prioridade"
+            id="prioridade"
+            formControlName="priority"
+            [ngClass]="{ 'input-contrast': themeService.isHighContrastMode }"
+          >
+            <option disabled selected value="">Ex.: Grave</option>
+            <option value="Grave">Grave</option>
+            <option value="Média">Médio</option>
+            <option value="Fácil">Fácil</option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div
+    class="dialog-actions"
+    [ngClass]="{ 'high-contrast': themeService.isHighContrastMode }"
+  >
+    <button
+      mat-raised-button
+      mat-dialog-close
+      class="dialog-actions__button_sair"
+      aria-label="Botão para sair do modal"
+      [ngClass]="{ 'button-contrast': themeService.isHighContrastMode }"
+    >
+      Sair
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="addTask()"
+      class="dialog-actions__button_add"
+      aria-label="Botão para adicionar uma tarrefa ou editar"
+      [ngClass]="{ 'button-contrast': themeService.isHighContrastMode }"
+    >
+      {{ actionBtn }}
+    </button>
+  </div>
 </div>

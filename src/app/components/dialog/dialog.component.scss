@@ -10,6 +10,7 @@ mat-form-field {
 
 .form__full-width {
   width: 100%;
+
 }
 
 .dialog-actions {
@@ -33,4 +34,72 @@ mat-form-field {
   border-radius: 5px;
   color: #FFF;
   width: 35%;
+}
+
+.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast img {
+  filter: invert(100%) !important;
+}
+
+.button-contrast{
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+.button-contrast:hover{
+  background-color: #fff !important;
+  color: #000 !important;
+}
+
+.text-contrast{
+  color: #FFF !important;
+}
+
+.input-contrast{
+  border: solid 1px #FFF;
+  color: #FFF !important;
+  background-color: #000;
+}
+
+.inputexterno-contrast{
+  border: solid 1px #FFF;
+}
+
+.inputexterno-contrast div{
+  border: solid 1px #FFF;
+}
+
+input, textarea, select{
+  padding: 1rem;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 5px;
+}
+
+form{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+form input, form select{
+  width: 100% !important;
+}
+
+form div div{
+  width: 100% !important;
+}
+.dialog-actions{
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 1000px) {
+  .form__container{
+    flex-direction: column;
+  }
 }

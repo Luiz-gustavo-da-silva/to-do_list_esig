@@ -1,4 +1,4 @@
-<div class="sidebar__container">
+<div class="sidebar__container" [ngClass]="{'high-contrast': themeService.isHighContrastMode}">
   <div class="sidebar__img">
     <img src="../../assets/logo_esig.png" alt="Logo da empresa ESIG" />
   </div>
@@ -7,8 +7,16 @@
       class="sidebar__button sidebar__button--plus"
       (click)="openDialog()"
       aria-label="Adicionar uma nova tarefa"
+      [ngClass]="{'button-contrast': themeService.isHighContrastMode}"
     >
       <mat-icon>add</mat-icon>
+      
     </button>
+  </div>
+  <div>
+    <button (click)="toggleHighContrastMode()"  class="sidebar__button sidebar__button--plus" 
+    [ngClass]="{'button-contrast': themeService.isHighContrastMode}"
+    aria-label="Liga a ferramenta de acessibilidade alto contraste">
+    <mat-icon >accessibility</mat-icon></button>
   </div>
 </div>

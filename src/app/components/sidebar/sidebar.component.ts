@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { ThemeService } from 'src/app/services/theme-service';
 
 /**
  * Componente de sidebar.
@@ -17,7 +18,7 @@ export class SidebarComponent {
    * Construtor do componente.
    * @param dialog O serviço MatDialog para abrir o diálogo.
    */
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog,  public themeService: ThemeService) {}
 
   /**
    * Função para abrir o modal de adição/atualização de tarefa.
@@ -33,5 +34,9 @@ export class SidebarComponent {
           this.getAllTaskEvent.emit();
         }
       });
+  }
+
+  toggleHighContrastMode() {
+    this.themeService.toggleHighContrastMode();
   }
 }

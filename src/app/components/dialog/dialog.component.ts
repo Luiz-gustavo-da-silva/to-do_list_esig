@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ThemeService } from 'src/app/services/theme-service';
 
 /**
  * Componente modal para adicionar ou atualizar uma tarefa.
@@ -26,7 +27,8 @@ export class DialogComponent implements OnInit {
     private formBuilder: FormBuilder,
     private api: ApiService,
     @Inject(MAT_DIALOG_DATA) public editData: any,
-    private dialogRef: MatDialogRef<DialogComponent>
+    private dialogRef: MatDialogRef<DialogComponent>,
+    public themeService: ThemeService
   ) {}
 
   /**

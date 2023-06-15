@@ -13,6 +13,33 @@
     cursor:pointer;
 }
 
+.high-contrast {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+  
+  .high-contrast img {
+    filter: invert(100%) !important;
+  }
+  
+  .button-contrast{
+    background-color: #fff !important;
+    color: #000 !important;
+  }
+  
+  .button-contrast:hover{
+    background-color: #fff !important;
+    color: #000 !important;
+  }
+  .text-contrast{
+    color: #FFF !important;
+  }
+  
+  .input-contrast{
+    border: #fff !important;
+    color: #FFF !important;
+  }
+  
 @media (max-width: 700px) {
     .button__sair{
         width: 50%;

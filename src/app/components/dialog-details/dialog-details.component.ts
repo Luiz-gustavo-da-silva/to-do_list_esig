@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ThemeService } from 'src/app/services/theme-service';
 
 /**
  * Componente modal para exibir detalhes.
@@ -18,7 +19,8 @@ export class DialogDetailsComponent implements OnInit {
    */
   constructor(
     @Inject(MAT_DIALOG_DATA) public showData: any,
-    public dialogRef: MatDialogRef<DialogDetailsComponent>
+    public dialogRef: MatDialogRef<DialogDetailsComponent>,
+    public themeService: ThemeService
   ) {}
 
   /**

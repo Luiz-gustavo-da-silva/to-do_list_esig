@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Task } from 'src/app/models/TaskModel';
-
+import { ThemeService } from '../../services/theme-service';
 @Component({
   selector: 'app-todopage',
   templateUrl: './todopage.component.html',
@@ -32,8 +32,11 @@ export class TodopageComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private formBuilder: FormBuilder,
-    private api: ApiService
+    private api: ApiService,
+    public themeService: ThemeService
   ) {}
+
+
 
   /**
    * Inicializa o componente.

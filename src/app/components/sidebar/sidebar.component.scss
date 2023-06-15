@@ -30,6 +30,28 @@
   width: 8vmax;
 }
 
+mat-button-toggle-group {
+  margin-left: 12px;
+}
+
+.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast img {
+  filter: invert(100%) !important;
+}
+
+.button-contrast{
+  background-color: #fff;
+  color: #000;
+}
+
+.button-contrast:hover{
+  background-color: #fff;
+  color: #000;
+}
 
 @media (max-width: 1000px) {
   .sidebar__container {

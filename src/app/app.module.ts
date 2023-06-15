@@ -26,6 +26,7 @@ import { DialogDetailsComponent } from './components/dialog-details/dialog-detai
 import { LoginComponent } from './pages/login/login.component';
 import { TodopageComponent } from './pages/todopage/todopage.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatPaginatorModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(TaskDataService),
-    MatExpansionModule
+    MatExpansionModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent],
