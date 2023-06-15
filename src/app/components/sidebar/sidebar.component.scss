@@ -1,6 +1,6 @@
 .sidebar__button--plus {
   border: none;
-  background-color: #4394EB;
+  background-color: #3577be;
   color: #fff;
   cursor: pointer;
   border-radius: 50%;
@@ -11,7 +11,7 @@
 }
 
 .sidebar__button--plus:hover {
-  background: #219bcfef;
+  background: #3577bec4;
   transition: 0.6s;
 }
 
@@ -32,7 +32,7 @@
 }
 
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
   .sidebar__container {
     height: auto;
     border: none;

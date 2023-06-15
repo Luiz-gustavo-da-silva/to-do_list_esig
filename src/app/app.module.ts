@@ -25,6 +25,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DialogDetailsComponent } from './components/dialog-details/dialog-details.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TodopageComponent } from './pages/todopage/todopage.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { TodopageComponent } from './pages/todopage/todopage.component';
     MatPaginatorModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(TaskDataService),
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],

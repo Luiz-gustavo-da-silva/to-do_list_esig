@@ -8,12 +8,15 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Task } from 'src/app/models/TaskModel';
 
+
 @Component({
   selector: 'app-todopage',
   templateUrl: './todopage.component.html',
   styleUrls: ['./todopage.component.scss']
 })
 export class TodopageComponent implements OnInit {
+  panelOpenState = false;
+
   title = 'to-do_list_esig';
 
   taskFilterForm!: FormGroup;
