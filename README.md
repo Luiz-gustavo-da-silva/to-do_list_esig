@@ -6,7 +6,7 @@
 
 link do site hospedado no Netify:
 
-https://main--lucent-empanada-e79c23.netlify.app/todopage
+https://main--lucent-empanada-e79c23.netlify.app
 
 OBS.: Desculpe pelo link estranho, isso ocorreu porque não comprei um domínio para o site.
 
